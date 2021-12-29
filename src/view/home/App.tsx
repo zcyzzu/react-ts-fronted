@@ -1,12 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+/*
+ * @Author: zhangchenyang
+ * @Date: 2021-08-09 17:28:54
+ * @LastEditors: zhangchenyang
+ * @LastEditTime: 2021-10-15 15:35:53
+ */
+import React from "react";
+// import logo from "./logo.svg";
+import "./App.css";
 
-function App() {
+function App(): JSX.Element {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img id="1231312" src='https://img95.699pic.com/photo/50046/5562.jpg_wh300.jpg' alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
