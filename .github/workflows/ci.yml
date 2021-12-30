@@ -33,7 +33,7 @@ jobs:
     #     BUILD_SCRIPT: npm install && npm run build
     steps:
     - name: FTP Deployer
-        uses: sand4rt/ftp-deployer@v1.3
+      uses: sand4rt/ftp-deployer@v1.3
         with:
           sftp: false # optional
           host: ${{ secrets.SERVER_IP }} # e.g. ftp.host.com or sftp.host.com (without ftp:// or ftps://)
