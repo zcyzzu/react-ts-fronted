@@ -13,16 +13,17 @@ jobs:
       run: npm i
     - name: Build
       run: npm run build
-    # - name: deploy
-    #     uses: wlixcc/SFTP-Deploy-Action@v1.0
-    #     with:  
-    #       username: 'root'   #ssh user name
-    #       server: ${{ secrets.SERVER_IP }} # 引用之前创建好的secret
-    #       ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }} #引用之前创建好的secret
-    #       local_path: './build/*'  # 对应我们项目build的文件夹路径
-    #       remote_path: '/usr/share/nginx/react-front'
-    #       args: '-o ConnectTimeout=5'
-
+    - name: deploy
+      uses: wlixcc/SFTP-Deploy-Action@v1.0
+      with:  
+        username: 'root'   #ssh user name
+        server: ${{ secrets.SERVER_IP }} # 引用之前创建好的secret
+        ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }} #引用之前创建好的secret
+        local_path: './build/*'  # 对应我们项目build的文件夹路径
+        remote_path: '/usr/share/nginx/react-front'
+        args: '-o ConnectTimeout=5'
+    - name: reload
+      run: nginx -s reload
 
     # - name: Build and Deploy
     #   uses: JamesIves/github-pages-deploy-action@master
@@ -31,19 +32,17 @@ jobs:
     #     BRANCH: main
     #     FOLDER: build
     #     BUILD_SCRIPT: npm install && npm run build
-    - name: FTP Deployer
-      uses: sand4rt/ftp-deployer@v1.3
-      with:
-        sftp: false # optional
-        host: ${{ secrets.SERVER_IP }} # e.g. ftp.host.com or sftp.host.com (without ftp:// or ftps://)
-        # port: 21 # optional, default is: 21
-        username: 'root' # FTP username
-        password: 'Zcy94666' # FTP password
-        remote_folder: '/usr/share/nginx/react-front' # optional, remote path of your FTP server
-        local_folder: './build/*' # optional, local path, default is: dist
-        cleanup: false # optional, remove existing files inside FTP remote folder
-        include: ['build'] # optional, e.g. ['dist']
-        exclude: ['node_modules/**', '.git/**', '*.env'] # optional, e.g. ['node_modules/**', '.git/**', '*.env']
-        pasive: true # optional
-    - name: reload
-      run: nginx -s reload
+    # - name: FTP Deployer
+    #   uses: sand4rt/ftp-deployer@v1.3
+    #   with:
+    #     sftp: false # optional
+    #     host: ${{ secrets.SERVER_IP }} # e.g. ftp.host.com or sftp.host.com (without ftp:// or ftps://)
+    #     # port: 21 # optional, default is: 21
+    #     username: 'root' # FTP username
+    #     password: 'Zcy94666' # FTP password
+    #     remote_folder: '/usr/share/nginx/react-front' # optional, remote path of your FTP server
+    #     local_folder: './build/*' # optional, local path, default is: dist
+    #     cleanup: false # optional, remove existing files inside FTP remote folder
+    #     include: ['build'] # optional, e.g. ['dist']
+    #     exclude: ['node_modules/**', '.git/**', '*.env'] # optional, e.g. ['node_modules/**', '.git/**', '*.env']
+    #     pasive: true # optional
