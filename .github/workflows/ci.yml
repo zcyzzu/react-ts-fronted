@@ -13,8 +13,8 @@ jobs:
       run: npm i
     - name: Build
       run: npm run build
-    - name: deploy file to server
-        uses: wlixcc/SFTP-Deploy-Action
+    - name: deploy
+        uses: wlixcc/SFTP-Deploy-Action@v1.0
         with:  
           username: 'root'   #ssh user name
           server: ${{ secrets.SERVER_IP }} # 引用之前创建好的secret
@@ -22,7 +22,7 @@ jobs:
           local_path: './build/*'  # 对应我们项目build的文件夹路径
           remote_path: '/usr/share/nginx/react-front'
           args: '-o ConnectTimeout=5'
-    - name: reload nginx
+    - name: reload
       run: nginx -s reload
 
     # - name: Build and Deploy
