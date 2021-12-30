@@ -32,6 +32,8 @@ jobs:
     #     FOLDER: build
     #     BUILD_SCRIPT: npm install && npm run build
 
+    - name: Checkout
+        uses: actions/checkout@master
     - name: FTP Deployer
         uses: sand4rt/ftp-deployer@v1.3
         with:
