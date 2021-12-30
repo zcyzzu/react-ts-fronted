@@ -27,12 +27,9 @@ export default class Login extends React.Component<LoginState> {
 
   componentWillMount(): void {
     console.log("componentWillMount", "1");
-    // import 'cropperjs/dist/cropper.css';
-
-    
   }
 
-  render() {
+  render(): JSX.Element {
     console.log("render", 2);
     return (
       <img
