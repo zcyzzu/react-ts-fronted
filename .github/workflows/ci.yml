@@ -31,7 +31,6 @@ jobs:
     #     BRANCH: main
     #     FOLDER: build
     #     BUILD_SCRIPT: npm install && npm run build
-    steps:
     - name: FTP Deployer
       uses: sand4rt/ftp-deployer@v1.3
       with:
