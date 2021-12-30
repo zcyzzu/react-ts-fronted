@@ -22,7 +22,8 @@ jobs:
         local_path: './build/*'
         remote_path: '/usr/share/nginx/react-front'
         args: '-o ConnectTimeout=5'
-    - name: reload
+    - name: sudo
       run: sudo nginx -c /etc/nginx/nginx.conf
+    - name: reload
       run: nginx -s reload
 
