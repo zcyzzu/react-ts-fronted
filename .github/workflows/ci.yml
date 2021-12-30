@@ -9,8 +9,8 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@master
-    - name: install modules
-      run: npm i
+    # - name: install modules
+    #   run: npm i
     - name: Build
       run: npm run build
     - name: deploy
@@ -23,5 +23,6 @@ jobs:
         remote_path: '/usr/share/nginx/react-front'
         args: '-o ConnectTimeout=5'
     - name: reload
+      run: sudo nginx -c /etc/nginx/nginx.conf
       run: nginx -s reload
 
