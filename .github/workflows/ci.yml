@@ -14,7 +14,7 @@ jobs:
     - name: Build
       run: npm run build
     - name: deploy file to server
-        uses: wlixcc/SFTP-Deploy-Action@v1.0
+        uses: wlixcc/SFTP-Deploy-Action
         with:  
           username: 'root'   #ssh user name
           server: ${{ secrets.SERVER_IP }} # 引用之前创建好的secret
