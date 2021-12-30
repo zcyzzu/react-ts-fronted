@@ -34,18 +34,17 @@ jobs:
     steps:
     - name: FTP Deployer
       uses: sand4rt/ftp-deployer@v1.3
-        with:
-          sftp: false # optional
-          host: ${{ secrets.SERVER_IP }} # e.g. ftp.host.com or sftp.host.com (without ftp:// or ftps://)
-          # port: 21 # optional, default is: 21
-          username: 'root' # FTP username
-          password: 'Zcy94666' # FTP password
-          remote_folder: '/usr/share/nginx/react-front' # optional, remote path of your FTP server
-          local_folder: './build/*' # optional, local path, default is: dist
-          cleanup: false # optional, remove existing files inside FTP remote folder
-          include: ['build'] # optional, e.g. ['dist']
-          exclude: ['node_modules/**', '.git/**', '*.env'] # optional, e.g. ['node_modules/**', '.git/**', '*.env']
-          pasive: true # optional
-
+      with:
+        sftp: false # optional
+        host: ${{ secrets.SERVER_IP }} # e.g. ftp.host.com or sftp.host.com (without ftp:// or ftps://)
+        # port: 21 # optional, default is: 21
+        username: 'root' # FTP username
+        password: 'Zcy94666' # FTP password
+        remote_folder: '/usr/share/nginx/react-front' # optional, remote path of your FTP server
+        local_folder: './build/*' # optional, local path, default is: dist
+        cleanup: false # optional, remove existing files inside FTP remote folder
+        include: ['build'] # optional, e.g. ['dist']
+        exclude: ['node_modules/**', '.git/**', '*.env'] # optional, e.g. ['node_modules/**', '.git/**', '*.env']
+        pasive: true # optional
     - name: reload
-        run: nginx -s reload
+      run: nginx -s reload
