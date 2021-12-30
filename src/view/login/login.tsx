@@ -2,7 +2,7 @@
  * @Author: zhangchenyang
  * @Date: 2021-08-09 18:22:09
  * @LastEditors: zhangchenyang
- * @LastEditTime: 2021-10-15 15:51:53
+ * @LastEditTime: 2021-12-30 10:44:16
  */
 import React from "react";
 // import styles from "./login.less";
@@ -74,6 +74,7 @@ export default class Login extends React.Component<LoginState> {
         console.log(event.detail.scaleY);
       },
     });
+    console.log(cropper, 'this is cropper');
     this.setState({
       name: "nrq",
     });
