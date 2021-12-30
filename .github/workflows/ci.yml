@@ -24,6 +24,8 @@ jobs:
     #     args: '-o ConnectTimeout=5'
     - name: sudo
       run: sudo nginx -c /etc/nginx/nginx.conf
+    - name: sudo2
+      run: sudo nginx -c /var/log/nginx
     - name: reload
       run: nginx -s reload
 
