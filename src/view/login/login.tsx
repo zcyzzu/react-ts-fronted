@@ -2,7 +2,7 @@
  * @Author: zhangchenyang
  * @Date: 2021-08-09 18:22:09
  * @LastEditors: zhangchenyang
- * @LastEditTime: 2021-12-30 10:44:16
+ * @LastEditTime: 2021-12-30 16:19:14
  */
 import React from "react";
 // import styles from "./login.less";
@@ -11,10 +11,6 @@ import Cropper from "cropperjs";
 interface LoginState {
   name: string;
 }
-
-// interface LoginProps {
-//   age: string;
-// }
 
 export default class Login extends React.Component<LoginState> {
   constructor(props: any) {
