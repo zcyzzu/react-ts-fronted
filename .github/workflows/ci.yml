@@ -18,12 +18,12 @@ jobs:
       with:  
         username: 'root'   #ssh user name
         server: ${{ secrets.SERVER_IP }} # 引用之前创建好的secret
-        ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }} #引用之前创建好的secret
-        local_path: './build/*'  # 对应我们项目build的文件夹路径
+        ssh_private_key: ${{ secrets.SERVER_SSH_PRIV_KEY }} #引用之前创建好的secret
+        local_path: '../../build/*'  # 对应我们项目build的文件夹路径
         remote_path: '/usr/share/nginx/react-front'
         args: '-o ConnectTimeout=5'
-    - name: reload
-      run: nginx -s reload
+    # - name: reload
+    #   run: nginx -s reload
 
     # - name: Build and Deploy
     #   uses: JamesIves/github-pages-deploy-action@master
