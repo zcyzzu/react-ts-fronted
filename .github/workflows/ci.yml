@@ -11,17 +11,17 @@ jobs:
       uses: actions/checkout@master
     # - name: install modules
     #   run: npm i
-    - name: Build
-      run: npm run build
-    - name: deploy
-      uses: wlixcc/SFTP-Deploy-Action@v1.0
-      with:  
-        username: 'root'
-        server: ${{ secrets.HOST_NAME }}
-        ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-        local_path: './build/*'
-        remote_path: '/usr/share/nginx/react-front'
-        args: '-o ConnectTimeout=5'
+    # - name: Build
+    #   run: npm run build
+    # - name: deploy
+    #   uses: wlixcc/SFTP-Deploy-Action@v1.0
+    #   with:  
+    #     username: 'root'
+    #     server: ${{ secrets.HOST_NAME }}
+    #     ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+    #     local_path: './build/*'
+    #     remote_path: '/usr/share/nginx/react-front'
+    #     args: '-o ConnectTimeout=5'
     - name: sudo
       run: sudo nginx -c /etc/nginx/nginx.conf
     - name: reload
